@@ -1,0 +1,74 @@
+{
+    "users": [
+      {
+        "id": "1",
+        "username" : "user_name-is-abhinav",
+        "email": "abhinav@bahikhata.org",
+        "password": "Abhinav@12"
+      },
+      {
+        "id": "2",
+        "username" : "user_name-is-abhinav",
+        "email": "email",
+        "password": "password"
+      },
+      {
+        "id": "3",
+        "username" : "user_name-is-abhinav",
+        "email": "agarwalabhinav91@gmail.com",
+        "password": "password"
+      },
+      {
+        "id": "114f",
+        "username" : "user_name-is-abhinav",
+        "email": "abhinav@bahikhata.org1",
+        "password": "Abhinav@00"
+      },
+      {
+        "id": "aa09",
+        "username" : "user_name-is-abhinav",
+        "email": "abhinav@bahikhata.org12",
+        "password": "Abhinav@00"
+      },
+      {
+        "id": "3552",
+        "username" : "user_name-is-abhinav",
+        "email": "abhinav@bahikhata.org10",
+        "password": "Abhinav@00"
+      }
+    ],
+    "forms": [],
+    "todos": [
+      {
+        "id": "1",
+        "userEmail": "abhinav@bahikhata.org",
+        "text": "The Todo Text is here",
+        "image": "",
+        "isCompleted": false
+      }, {
+        "id": "2",
+        "userEmail": "abhinav@bahikhata.org1",
+        "text": "The Todo Text is here 2",
+        "image": "",
+        "isCompleted": false
+      }, {
+        "id": "3",
+        "userEmail": "abhinav@bahikhata.org2",
+        "text": "The Todo Text is here 3",
+        "image": "",
+        "isCompleted": false
+      }, {
+        "id": "4",
+        "userEmail": "abhinav@bahikhata.org",
+        "text": "The Todo Text is here 4",
+        "image": "",
+        "isCompleted": false
+      }, {
+        "id": "5",
+        "userEmail": "abhinav@bahikhata.org",
+        "text": "The Todo Text is here 5",
+        "image": "",
+        "isCompleted": false
+      }
+    ]
+  }
