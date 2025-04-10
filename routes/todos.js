@@ -94,4 +94,26 @@ router.delete("/:id", (async(req, res) => {
       }
 }));
 
+router.put("/:id", (async(req, res)=> {
+    try {
+        const data = await fs.readFile(dbFilePath, 'utf8');
+        const jsonFile = JSON.parse(data);
+        const todos = jsonFile.todos;
+    
+        const index = todos.findIndex(todo => todo.id === req.params.id);
+    
+        if (index !== -1) {
+            todos[index] = {...todos[index], ...req.body};
+            await fs.writeFile(dbFilePath, JSON.stringify(jsonFile, null, 2), 'utf8');
+            res.json({ message: "Todo Updated", todo: req.body });
+        } else {
+          res.status(404).send("Todo not found");
+        }
+    }
+    catch (error) {
+        console.error("Error updating todo: " + error);
+        res.status(500).send("Error updating todo");
+    }
+}));
+
 module.exports = router;
