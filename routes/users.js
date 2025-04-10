@@ -25,17 +25,14 @@ router
       if (username) {
         users = users.filter((user) => user.username === username);
       }
-      if (users.length) {
-        res.json(users);
-      } else {
-        res.status(404).send("No such User Found");
-      }
+      res.json(users);
     } catch (error) {
       console.error("Error reading db.json:", error);
       res.status(500).send("Error reading data");
     }
   })
   .post(async (req, res) => {
+    console.log("new Request: " + req.body);
     try {
       const {
         id = uuid.v4(),
