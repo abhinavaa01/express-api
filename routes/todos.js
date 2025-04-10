@@ -23,8 +23,11 @@ router.get("/", async (req, res) => {
         if (isCompleted) {
             todos = todos.filter((todo)=> todo.isCompleted === isCompleted);
         }
-
-        res.json(todos);
+        if (todos.length) {
+            res.json(todos);
+        } else {
+            res.status(404).send("No such Todo Found");
+        }
     } catch (error) {
         console.error('Error reading db.json:', error);
         res.status(500).send('Error reading data');

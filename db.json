@@ -40,13 +40,6 @@
   "forms": [],
   "todos": [
     {
-      "id": "1",
-      "userEmail": "abhinav@bahikhata.org",
-      "text": "The Todo Text is here",
-      "image": "",
-      "isCompleted": false
-    },
-    {
       "id": "2",
       "userEmail": "abhinav@bahikhata.org1",
       "text": "The Todo Text is here 2",
@@ -92,13 +85,6 @@
       "id": "1017dad1-cbbd-4db8-884d-5066985fca8e",
       "userEmail": "hello@test.in",
       "text": "hello",
-      "image": "",
-      "isCompleted": false
-    },
-    {
-      "id": "6b8feb0b-90dd-40ae-9177-1269d92a3b03",
-      "userEmail": "hello@test.in",
-      "text": "hell no! Hello World!",
       "image": "",
       "isCompleted": false
     },
