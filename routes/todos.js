@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
             todos = todos.filter((todo)=> todo.userEmail === userEmail);
         }
         if (isCompleted) {
-            todos = todos.filter((todo)=> todo.isCompleted === isCompleted);
+            todos = todos.filter((todo)=> todo.isCompleted.toString() === isCompleted);
         }
         if (todos.length) {
             res.json(todos);
