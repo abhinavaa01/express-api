@@ -8,11 +8,19 @@ router.use(express.json());
 
 const dbFilePath = path.join(__dirname, '../db.json');
 
+const readFile = async () => {
+    const data = await fs.readFile(dbFilePath, 'utf8');
+    return JSON.parse(data);
+}
+
+const writeFile = async (jsonFile) => {
+    fs.writeFile(dbFilePath, JSON.stringify(jsonFile, null, 2), 'utf8');
+}
+
 router.get("/", async (req, res) => {
     const { userEmail, id, isCompleted } = req.query;
     try {
-        const data = await fs.readFile(dbFilePath, 'utf8');
-        const jsonFile = JSON.parse(data);
+        const jsonFile = await readFile();
         let todos = jsonFile.todos;
         if (id) {
             todos = todos.filter((todo)=> todo.id === id);
@@ -24,7 +32,7 @@ router.get("/", async (req, res) => {
             todos = todos.filter((todo)=> todo.isCompleted.toString() === isCompleted);
         }
         if (todos.length) {
-            res.json(todos);
+            res.json({count: todos.length, todos: todos});
         } else {
             res.status(404).send("No such Todo Found");
         }
@@ -51,11 +59,10 @@ router.post("/", async (req, res) => {
                 isCompleted: false
             };
 
-            const data = await fs.readFile(dbFilePath, 'utf8');
-            const jsonFile = JSON.parse(data);
+            const jsonFile = await readFile();
             jsonFile.todos.push(newTodo);
 
-            fs.writeFile(dbFilePath, JSON.stringify(jsonFile, null, 2), 'utf8');
+            writeFile(jsonFile);
 
             res.status(201).json(newTodo);
         } catch (error) {
@@ -65,8 +72,7 @@ router.post("/", async (req, res) => {
     });
 
 router.get("/:id", (async(req, res) => {
-        const data = await fs.readFile(dbFilePath, 'utf8');
-        const jsonFile = JSON.parse(data);
+        const jsonFile = await readFile();
         const todos = jsonFile.todos;
         const result = todos.find((todo)=>todo.id === req.params.id)
         if (result) {
